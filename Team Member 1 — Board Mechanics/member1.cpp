@@ -11,6 +11,8 @@ void SwappingCandies()
 
 }
 
+
+
 int GetKey()		//for getting shift, another special character
 {
 	return _getch();   //returns ASCII or special key codes
