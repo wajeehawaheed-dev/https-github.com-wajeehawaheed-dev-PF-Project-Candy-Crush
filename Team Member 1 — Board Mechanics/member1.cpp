@@ -6,9 +6,73 @@
 
 using namespace std;
 
-void SwappingCandies()
+bool findMatches()
 {
 
+}
+
+bool removeMatches()
+{
+
+}
+
+bool applyGravity()
+{
+
+}
+
+bool refillBoard()
+{
+
+}
+
+bool SwappingCandies(int grid[][20], int r, int c, int direction, int size)
+{
+	int swap;
+
+	if(direction == 1 && r == 0 && direction == 2 && r == size - 1 && direction == 3 && c == 0 && direction == 4 && c == size - 1)
+	{
+		cout << "Invalid move!" << endl;
+		return false;
+	}
+	//Up
+	if (direction == 1 && r > 0)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r - 1][c];
+		grid[r - 1][c] = swap;
+	}
+
+	//Down
+	else if (direction == 2 && r < size - 1)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r + 1][c];
+		grid[r + 1][c] = swap;
+	}
+
+	//left
+	else if (direction == 3 && c > 0)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r][c - 1];
+		grid[r][c - 1] = swap;
+	}
+
+	//Right
+	else if (direction == 4 && c < size - 1)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r][c + 1];
+		grid[r][c + 1] = swap;
+	}
+	else
+	{
+		cout << "Invalid move!" << endl;
+		return false;
+	}
+
+	
 }
 
 int GetKey()		//for getting shift, another special character
@@ -81,12 +145,24 @@ void DisplayGrid(int grid[][20], int gridSize, int candyTypes, int level)
 	}
 }
 
+void PrintOnlyGrid(int grid[][20],int gridSize)
+{
+	for(int i = 0; i < gridSize; i++)
+	{
+		for(int j = 0; j < gridSize; j++)
+		{
+			cout << grid[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
 
 int main()
 {	
 	int grid[20][20];
 	int level;
 
+	int gridSize = 0, candyTypes = 0;
 	
 	do
 	{
@@ -95,65 +171,65 @@ int main()
 	} while (level < 1 || level > 10);
 	//5 types of candies (red,blue,green,yellow,purple)
 
-	if (level == 1)					//	Level 1: Very Easy
+	if (level == 1)				//	Level 1: Very Easy
 	{
-		int gridSize = 8;			//8x8 grid
-		int candyTypes = 5;		
+		gridSize = 8;			//8x8 grid
+		candyTypes = 5;		
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if(level == 2)				//	Level 2: Very Easy
+	else if(level == 2)			//	Level 2: Very Easy
 	{
-		int gridSize = 8;			//8x8 grid
-		int candyTypes = 5;
+		gridSize = 8;			//8x8 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 3)			//	Level 3: Easy
+	else if (level == 3)		//	Level 3: Easy
 	{
-		int gridSize = 9;			//9x9 grid
-		int candyTypes = 5;
+		gridSize = 9;			//9x9 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 4)			//	Level 4: Easy
+	else if (level == 4)		//	Level 4: Easy
 	{
-		int gridSize = 9;			//9x9 grid
-		int candyTypes = 5;
+		gridSize = 9;			//9x9 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 5)			//	Level 5: Medium
+	else if (level == 5)		//	Level 5: Medium
 	{
-		int gridSize = 10;			//10x10 grid
-		int candyTypes = 5;
+		gridSize = 10;			//10x10 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
 
-	else if (level == 6)			//	Level 6: Medium
+	else if (level == 6)		//	Level 6: Medium
 	{
-		int gridSize = 10;			//10x10 grid
-		int candyTypes = 5;
+		gridSize = 10;			//10x10 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 7)			//	Level 7: Hard
+	else if (level == 7)		//	Level 7: Hard
 	{
-		int gridSize = 11;			//11x11 grid
-		int candyTypes = 5;
+		gridSize = 11;			//11x11 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 8)			//	Level 8: Hard
+	else if (level == 8)		//	Level 8: Hard
 	{
-		int gridSize =11;			//11x11 grid
-		int candyTypes = 5;
+		gridSize =11;			//11x11 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 9)			//	Level 9: Very Hard
+	else if (level == 9)		//	Level 9: Very Hard
 	{
-		int gridSize = 12;			//12x12 grid
-		int candyTypes = 5;
+		gridSize = 12;			//12x12 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
-	else if (level == 10)			//	Level 10: Very Hard
+	else if (level == 10)		//	Level 10: Very Hard
 	{
-		int gridSize = 12;			//12x12 grid
-		int candyTypes = 5;
+		gridSize = 12;			//12x12 grid
+		candyTypes = 5;
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
 	
@@ -172,6 +248,11 @@ int main()
 	int defaultR = 0;
 	int defaultC = 0;
 
+	bool s= SwappingCandies(grid, defaultR, defaultC, direction, gridSize);
 
-
+	if (s)
+	{
+		cout << "\nAfter swapping, the new grid is: " << endl;
+		PrintOnlyGrid(grid, gridSize);
+	}
 }
