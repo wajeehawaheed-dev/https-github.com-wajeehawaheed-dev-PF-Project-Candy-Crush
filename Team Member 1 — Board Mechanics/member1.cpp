@@ -6,11 +6,82 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 void SwappingCandies()
+=======
+bool findMatches()
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
 {
 
 }
 
+<<<<<<< HEAD
+=======
+bool removeMatches()
+{
+
+}
+
+bool applyGravity()
+{
+
+}
+
+bool refillBoard()
+{
+
+}
+
+bool SwappingCandies(int grid[][20], int r, int c, int direction, int size)
+{
+	int swap;
+
+	if(direction == 1 && r == 0 && direction == 2 && r == size - 1 && direction == 3 && c == 0 && direction == 4 && c == size - 1)
+	{
+		cout << "Invalid move!" << endl;
+		return false;
+	}
+	//Up
+	if (direction == 1 && r > 0)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r - 1][c];
+		grid[r - 1][c] = swap;
+	}
+
+	//Down
+	else if (direction == 2 && r < size - 1)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r + 1][c];
+		grid[r + 1][c] = swap;
+	}
+
+	//left
+	else if (direction == 3 && c > 0)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r][c - 1];
+		grid[r][c - 1] = swap;
+	}
+
+	//Right
+	else if (direction == 4 && c < size - 1)
+	{
+		swap = grid[r][c];
+		grid[r][c] = grid[r][c + 1];
+		grid[r][c + 1] = swap;
+	}
+	else
+	{
+		cout << "Invalid move!" << endl;
+		return false;
+	}
+
+	
+}
+
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
 int GetKey()		//for getting shift, another special character
 {
 	return _getch();   //returns ASCII or special key codes
@@ -81,12 +152,30 @@ void DisplayGrid(int grid[][20], int gridSize, int candyTypes, int level)
 	}
 }
 
+<<<<<<< HEAD
+=======
+void PrintOnlyGrid(int grid[][20],int gridSize)
+{
+	for(int i = 0; i < gridSize; i++)
+	{
+		for(int j = 0; j < gridSize; j++)
+		{
+			cout << grid[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
 
 int main()
 {	
 	int grid[20][20];
 	int level;
 
+<<<<<<< HEAD
+=======
+	int gridSize = 0, candyTypes = 0;
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
 	
 	do
 	{
@@ -95,6 +184,7 @@ int main()
 	} while (level < 1 || level > 10);
 	//5 types of candies (red,blue,green,yellow,purple)
 
+<<<<<<< HEAD
 	if (level == 1)					//	Level 1: Very Easy
 	{
 		int gridSize = 8;			//8x8 grid
@@ -154,6 +244,67 @@ int main()
 	{
 		int gridSize = 12;			//12x12 grid
 		int candyTypes = 5;
+=======
+	if (level == 1)				//	Level 1: Very Easy
+	{
+		gridSize = 8;			//8x8 grid
+		candyTypes = 5;		
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if(level == 2)			//	Level 2: Very Easy
+	{
+		gridSize = 8;			//8x8 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 3)		//	Level 3: Easy
+	{
+		gridSize = 9;			//9x9 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 4)		//	Level 4: Easy
+	{
+		gridSize = 9;			//9x9 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 5)		//	Level 5: Medium
+	{
+		gridSize = 10;			//10x10 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+
+	else if (level == 6)		//	Level 6: Medium
+	{
+		gridSize = 10;			//10x10 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 7)		//	Level 7: Hard
+	{
+		gridSize = 11;			//11x11 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 8)		//	Level 8: Hard
+	{
+		gridSize =11;			//11x11 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 9)		//	Level 9: Very Hard
+	{
+		gridSize = 12;			//12x12 grid
+		candyTypes = 5;
+		DisplayGrid(grid, gridSize, candyTypes, level);
+	}
+	else if (level == 10)		//	Level 10: Very Hard
+	{
+		gridSize = 12;			//12x12 grid
+		candyTypes = 5;
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
 		DisplayGrid(grid, gridSize, candyTypes, level);
 	}
 	
@@ -172,6 +323,16 @@ int main()
 	int defaultR = 0;
 	int defaultC = 0;
 
+<<<<<<< HEAD
 
 
+=======
+	bool s= SwappingCandies(grid, defaultR, defaultC, direction, gridSize);
+
+	if (s)
+	{
+		cout << "\nAfter swapping, the new grid is: " << endl;
+		PrintOnlyGrid(grid, gridSize);
+	}
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
 }

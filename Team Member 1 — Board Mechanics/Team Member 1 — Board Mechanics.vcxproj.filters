@@ -18,5 +18,11 @@
     <ClCompile Include="member1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="member2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> 322e28bcc68a1903f6f17341fbce152ae80451b4
   </ItemGroup>
 </Project>
